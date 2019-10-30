@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+        connect-src 'self' https://sentry.prod.mozaws.net;
+        font-src 'self' https://addons.cdn.mozilla.net ;
+        frame-src 'self' https://ic.paypal.com https://paypal.com
+            https://www.google.com/recaptcha/ https://www.paypal.com;
+        img-src 'self' data: blob: https://www.paypal.com https://ssl.google-analytics.com
+            https://addons.cdn.mozilla.net https://static.addons.mozilla.net
+            http://thecodeplayer.com/uploads/media/gs.png
+            https://ssl.gstatic.com/ https://sentry.prod.mozaws.net;
+        media-src https://videos.cdn.mozilla.net;
+        object-src 'none';
+        script-src 'self' https://addons.mozilla.org
+            https://www.paypalobjects.com https://apis.google.com
+            https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js
+            https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/
+            https://ssl.google-analytics.com https://addons.cdn.mozilla.net;
+        style-src 'self' 'unsafe-inline' https://addons.cdn.mozilla.net;
+       ">
+    <link href="/static/css/styleslogin.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    </style>
+    <div class='temp'>
+        <form class="multi-form" method="POST">
+            <fieldset>
+                <h2 class="fs-title">User Login</h2>
+                <h3 class="fs-subtitle">Enter your information</h3>
+                <input type="text" name="username" id="uname" placeholder="Username:" />
+                <input type="password" name="password" id="pword" placeholder="Password" />
+                <input type="text" name="2fa" id="2fa" placeholder="2-Factor Authentication" />
+                <input class="action-button" type="submit" value="Login" id="login" />
+            </fieldset>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+        </form>
+
+        <div id ="res">
+             {{ result }} 
+        </div>
+            
+        <div class='temp2'>
+            <input class="action-button" type="button" value="Register" id="Register" />
+        </div>
+    </div>
+    <script src="/static/js/login.js">
+
+    </script>
+
+</body>
+
+</html>
